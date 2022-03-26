@@ -1,0 +1,317 @@
+:global(.prt-flx) {
+    --auto-grid-min-size: 33.333%;
+    --auto-grid-height-min-size: 50vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-template-rows: var(--auto-grid-height-min-size) var(--auto-grid-height-min-size);
+
+    @media (max-width: 1024px) {
+        --auto-grid-min-size: 50%;
+        --auto-grid-height-min-size: auto;
+        grid-template-rows: var(--auto-grid-height-min-size) var(--auto-grid-height-min-size) var(--auto-grid-height-min-size);
+    }
+}
+
+.sldItem {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: #000;
+    overflow: hidden;
+
+    @media (max-width: 1600px) {
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:global(.list-0) {
+        background-color: #41ca6e;
+    }
+    &:global(.list-1) {
+        background-color: #fab153;
+    }
+    &:global(.list-2) {
+        background-color: #7277d5;
+    }
+    &:global(.list-3) {
+        align-items: center;
+        background-color: #f87d51;
+    }
+    &:global(.list-4) {
+        align-items: center;
+        background-color: #ed5466;
+    }
+    &:global(.list-5) {
+        align-items: center;
+        background-color: #4ec2e7;
+
+        .sldInnr {
+            .sldTxt {
+                p {
+                    &.bot {
+                        max-width: 175px;
+                    }
+                }
+            }
+        }
+    }
+
+    .sldInnr {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 4.3em 30px 30px 6em;
+
+        @media (max-width: 1750px) {
+            padding-top: calc(15px + (65 - 15) * ((100vw - 420px) / (1750 - 420)));
+            padding-left: calc(15px + (90 - 15) * ((100vw - 420px) / (1750 - 420)));
+        }
+
+        .sldTxt {
+            padding-right: 15px;
+            .sldIco {
+                display: block;
+                margin: 0 0 15px;
+
+                @media (max-width: 1440px) {
+                    margin: 0 0 10px;
+                }
+                @media (max-width: 768px) {
+                    margin: 0 0 15px;
+                }
+
+                img {
+                    object-fit: contain;
+                    max-width: 95px;
+                    max-height: 50px;
+                }
+            }
+            p {
+                position: relative;
+                font-size: 20px;
+                font-weight: 300;
+                line-height: 1.3;
+                color: #fff;
+
+                @media (max-width: 1600px) {
+                    font-size: 1.2em;
+                }
+                
+                &.top {
+                    max-width: 175px;
+                    padding: 0 0 15px;
+                    margin: 0 0 15px;
+
+                    @media (max-width: 1600px) {
+                        padding: 0 0 1em;
+                        margin: 0 0 1em;
+                    }
+                    @media (max-width: 1440px) {
+                        padding: 0 0 .5em;
+                        margin: 0 0 .5em;
+                    }
+
+                    @media (max-width: 1600px) {
+                        max-width: 100%;
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        background-color: #fff;
+                        width: 100%;
+                        height: 2px;
+                        bottom: 0;
+                        left: 0;
+                    }
+                }
+                &.bot {
+                    max-width: 100%;
+                }
+            }
+        }
+        .sldImg {
+            display: inline-block;
+            max-width: 100%;
+            max-height: 100%;
+            img {
+                object-fit: contain;
+                width: auto;
+                height : 390px;
+                max-width: 100%;
+                max-height: 100%;
+
+                @media (max-width: 1750px){
+                    height: 300px;
+                }
+                @media (max-width: 1440px) {
+                    height: 290px;
+                }
+                @media (max-width: 1024px) {
+                    height: 250px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+
+    :global(.slick-slide) {
+        > div {
+            height: 100%;
+            .sldItem {
+                height: 100%;
+
+                    &:global(.list-0) {
+                        p {
+                            &.bot {
+                                &::after {
+                                    background-color: #41ca6e !important;
+                                }
+                            }
+                        }
+                    }
+                    &:global(.list-1) {
+                        p {
+                            &.bot {
+                                &::after {
+                                    background-color: #fab153 !important;
+                                }
+                            }
+                        }
+                    }
+                    &:global(.list-2) {
+                        p {
+                            &.bot {
+                                &::after {
+                                    background-color: #7277d5 !important;
+                                }
+                            }
+                        }
+                    }
+                    &:global(.list-3) {
+                        p {
+                            &.bot {
+                                &::after {
+                                    background-color: #f87d51 !important;
+                                }
+                            }
+                        }
+                    }
+                    &:global(.list-4) {
+                        p {
+                            &.bot {
+                                &::after {
+                                    background-color: #ed5466 !important;
+                                }
+                            }
+                        }
+                    }
+                    &:global(.list-5) {
+                        p {
+                            &.bot {
+                                &::after {
+                                    background-color: #4ec2e7 !important;
+                                }
+                            }
+                        }
+                    }
+                
+                .sldInnr {
+                    flex-flow: column wrap;
+                    justify-content: center;
+                    padding: 60px 60px 120px;
+                    height: 100%;
+
+                    .sldTxt {
+                        padding: 0;
+                        .sldIco {
+                            opacity: .1;
+                            transform: translateY(-50px);
+                            transition: all .5s linear;
+                            img {
+                                object-fit: contain;
+                                width: auto;
+                                height: 100px;
+                                max-width: 100%;
+                                max-height: 100%;
+                            }
+                        }
+                        p {
+                            font-size: calc(18px + (28 - 18) * ((100vw - 350px) / (768 - 350)));
+                            font-weight: 700;
+
+                            &.top {
+                                text-transform: uppercase;
+                                max-width: 270px;
+                                padding: 0 0 .5em;
+                                margin: 0 0 .5em;
+
+                                &::after {
+                                    width: 0%;
+                                    transition: all .5s ease-in-out;
+                                }
+                            }
+                            &.bot {
+                                font-weight: 300;
+                                color: #f0f0f0;
+                                &::after {
+                                    content: "";
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: transparent;
+                                    transition: all 1s ease-in-out;
+                                }
+                            }
+                        }
+                        margin: 0 0 15px;
+                    }
+                    .sldImg {
+                        transform: translateY(250px);
+                        transition: all .5s linear;
+                        img {
+                            height: 250px;
+                        }
+                    }
+                }
+            }
+        }
+        &:global(.slick-current) {
+            > div {
+                .sldItem {
+                    .sldInnr {
+                        .sldTxt {
+                            .sldIco {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                            p {
+                                &.top {
+                                    &::after {
+                                        width: 100%;
+                                    }
+                                }
+                                &.bot {
+                                    &::after {
+                                        height: 0%;
+                                    }
+                                }
+                            }
+                        }
+                        .sldImg {
+                            transform: translateY(0);
+                            transition: all .5s linear;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
